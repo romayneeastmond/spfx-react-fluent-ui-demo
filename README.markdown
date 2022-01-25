@@ -20,6 +20,12 @@ This version of SPFx uses SharePoint Online for workbench testing. Therefore edi
 https://YOUR_TENANT.sharepoint.com/sites/YOUR_SITE_NAME/_layouts/15/workbench.aspx
 ```
 
+In conjunction with the online workbench there is a localhost instance that contains manifest information for the entire solution. Before this can be served at **localhost:4321/temp/manifests.js** install the development certificate by running the command
+
+```
+gulp trust-dev-cert
+```
+
 ### Know Issues
 
 The Yeomen generator scaffolds the project files into the necessary directories. However the localized resource files, do not seem to package into the lib folder after building with gulp. In some cases manually editing the *localizedResources* settings in the **\config\config.json** file fixes this issue. For example, changing:
