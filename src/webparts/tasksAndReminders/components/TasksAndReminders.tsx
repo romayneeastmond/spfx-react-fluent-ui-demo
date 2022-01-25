@@ -85,8 +85,6 @@ const TasksAndReminders: React.FC<ITasksAndRemindersProps> = (props) => {
 
             setTasks(tasksList);
             setLoading(false);
-
-            console.log(tasksList);
         };
 
         load();
@@ -349,8 +347,6 @@ const TasksAndReminders: React.FC<ITasksAndRemindersProps> = (props) => {
                     </TeachingBubbleContent>
                 </Coachmark>
             }
-
-            
         </>
     );
 };
