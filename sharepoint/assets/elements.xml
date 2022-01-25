@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <Field ID="{3a0a1b89-c847-422b-9fc3-1507dbd473e5}"
+        Name="TasksAndReminderDate"
+        DisplayName="Date"
+        Type="DateTime"
+        Format="DateOnly"
+        Required="TRUE"
+        Group="Tasks And Reminder Columns" />
+
+    <Field ID="{47a3914a-8d33-4987-b5cf-935bd6510535}"
+        Name="TasksAndReminderReminder"
+        DisplayName="Reminder"
+        Type="Boolean"
+        Required="FALSE"
+        Group="Tasks And Reminder Columns">
+            <Default>0</Default>
+    </Field>
+
+    <ContentType ID="0x010042D0C1C200A14B6887742B6344675C8B"
+        Name="Tasks and Reminders"
+        Group="Tasks and Reminders Content Types"
+        Description="Content types from tasks and reminders web part">
+            <FieldRefs>
+                <FieldRef ID="{3a0a1b89-c847-422b-9fc3-1507dbd473e5}" />
+                <FieldRef ID="{47a3914a-8d33-4987-b5cf-935bd6510535}" />
+            </FieldRefs>
+    </ContentType>
+
+    <ListInstance CustomSchema="schema.xml"
+        FeatureId="00bfea71-de22-43b2-a848-c05709900100"
+        Title="Tasks and Reminders"
+        Description="Tasks and reminders list"
+        TemplateType="100"
+        Url="Lists/Tasks and Reminders" />
+</Elements>

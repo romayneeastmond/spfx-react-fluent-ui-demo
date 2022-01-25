@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "tasks-and-reminders-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/tasksAndReminders/TasksAndRemindersWebPart.js",
+          "manifest": "./src/webparts/tasksAndReminders/TasksAndRemindersWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "TasksAndRemindersWebPartStrings": "src/webparts/tasksAndReminders/loc/{locale}.js"
+  }
+}

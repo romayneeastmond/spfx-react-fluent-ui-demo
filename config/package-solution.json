@@ -1,0 +1,36 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "tasks-and-reminders-client-side-solution",
+        "id": "96b6246d-ae08-4de5-8215-203e0bc31ebe",
+        "version": "1.0.0.0",
+        "includeClientSideAssets": true,
+        "isDomainIsolated": false,
+        "developer": {
+            "name": "",
+            "websiteUrl": "",
+            "privacyUrl": "",
+            "termsOfUseUrl": "",
+            "mpnId": "Undefined-1.13.1"
+        },
+        "features": [
+            {
+                "title": "tasks-and-reminders-asset-deployment-webpart",
+                "description": "Tasks and Reminders asset deployment of Tasks and Reminders List",
+                "id": "e600c195-2e40-4f5e-8c17-27a9346453e1",
+                "version": "1.0.0.0",
+                "assets": {
+                    "elementManifests": [
+                        "elements.xml"
+                    ],
+                    "elementFiles": [
+                        "schema.xml"
+                    ]
+                }
+            }
+        ]
+    },
+    "paths": {
+        "zippedPackage": "solution/tasks-and-reminders.sppkg"
+    }
+}
