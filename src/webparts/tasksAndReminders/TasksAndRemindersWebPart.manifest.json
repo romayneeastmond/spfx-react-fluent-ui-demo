@@ -20,7 +20,7 @@
     "group": { "default": "Other" },
     "title": { "default": "Tasks and Reminders" },
     "description": { "default": "Sandbox Tasks and Reminders Web Part" },
-    "officeFabricIconFontName": "Page",
+    "officeFabricIconFontName": "BulletedList",
     "properties": {
       "description": "Tasks and Reminders"
     }
