@@ -3,7 +3,7 @@ name: Build the SPFx WebPart
 on: [push]
 
 env:
-  SolutionFolder: ./solution
+  SolutionFolder: .
 
 jobs:
   build:
