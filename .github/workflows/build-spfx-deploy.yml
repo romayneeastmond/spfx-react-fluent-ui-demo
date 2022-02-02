@@ -1,6 +1,9 @@
 name: Build and Deploy the SPFx WebPart with Microsoft 365 CLI
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 env:
   SolutionFolder: .
