@@ -1,0 +1,49 @@
+name: Build and Deploy the SPFx WebPart with Microsoft 365 CLI
+
+on: [push]
+
+env:
+  SolutionFolder: .
+  SolutionPackagePath: sharepoint/solution/tasks-and-reminders.sppkg
+
+jobs:
+  buildAndDeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: Run npm ci
+        run: npm ci
+        working-directory: ${{ env.SolutionFolder }}
+
+      - name: Run npm i -g gulp
+        run: npm i -g gulp
+        working-directory: ${{ env.SolutionFolder }}
+
+      - name: Bundle and package
+        run: |
+          gulp bundle --ship
+          gulp package-solution --ship
+        working-directory: ${{ env.SolutionFolder }}
+
+      - name: CLI for Microsoft 365 login
+        uses: pnp/action-cli-login@v2.0.0
+        with:
+          ADMIN_USERNAME: ${{ secrets.USER }}
+          ADMIN_PASSWORD: ${{ secrets.PASSWORD }}
+
+      # Deploy package to tenant using action-cli-deploy
+      - name: Deploy app to a site collection
+        uses: pnp/action-cli-deploy@v2.0.0
+        with:
+          APP_FILE_PATH: ${{ env.SolutionPackagePath }}
+          SCOPE: tenant
+          SITE_COLLECTION_URL: ${{ secrets.SPOURL }}
+          OVERWRITE: true
