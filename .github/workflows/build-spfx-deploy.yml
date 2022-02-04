@@ -1,4 +1,4 @@
-name: Build and Deploy the SPFx WebPart with Microsoft 365 CLI
+name: Build and Deploy with Microsoft 365 CLI
 
 on:
   push:
