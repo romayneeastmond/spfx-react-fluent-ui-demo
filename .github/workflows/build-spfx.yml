@@ -1,4 +1,4 @@
-name: Build the SPFx WebPart
+name: Build
 
 on: [push]
 
