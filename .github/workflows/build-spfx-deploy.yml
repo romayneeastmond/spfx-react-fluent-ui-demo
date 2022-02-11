@@ -32,8 +32,8 @@ jobs:
 
       - name: Bundle and package
         run: |
-          gulp bundle
-          gulp package-solution
+          gulp bundle --ship
+          gulp package-solution --ship
         working-directory: ${{ env.SolutionFolder }}
 
       - name: CLI for Microsoft 365 login
