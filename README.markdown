@@ -136,3 +136,7 @@ npm list -g --depth=0
 ## Copyright and Ownership
 
 All terms used are copyright to their original authors.
+
+## More Reading
+
+https://pnp.github.io/cli-microsoft365/
