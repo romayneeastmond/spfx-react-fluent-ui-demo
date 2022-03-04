@@ -11,7 +11,7 @@ env:
   SolutionPackagePath: sharepoint/solution/tasks-and-reminders.sppkg
 
 jobs:
-  buildAndDeploy:
+  build_and_deploy:
     runs-on: ubuntu-latest
 
     steps:
