@@ -14,7 +14,7 @@ Run an npm install
 npm i
 ```
 
-This version of SPFx uses SharePoint Online for workbench testing. Therefore edit the *initialPage* setting in the **\config\serve.json** file to use your own tenant:
+This version of SPFx uses SharePoint Online for workbench testing. Therefore edit the _initialPage_ setting in the **\config\serve.json** file to use your own tenant:
 
 ```
 https://YOUR_TENANT.sharepoint.com/sites/YOUR_SITE_NAME/_layouts/15/workbench.aspx
@@ -28,7 +28,7 @@ gulp trust-dev-cert
 
 ### Know Issues
 
-The Yeomen generator scaffolds the project files into the necessary directories. However the localized resource files, do not seem to package into the lib folder after building with gulp. In some cases manually editing the *localizedResources* settings in the **\config\config.json** file fixes this issue. For example, changing:
+The Yeomen generator scaffolds the project files into the necessary directories. However the localized resource files, do not seem to package into the lib folder after building with gulp. In some cases manually editing the _localizedResources_ settings in the **\config\config.json** file fixes this issue. For example, changing:
 
 ```
 "TasksAndRemindersWebPartStrings": "lib/webparts/tasksAndReminders/loc/{locale}.js"
@@ -40,7 +40,7 @@ to:
 "TasksAndRemindersWebPartStrings": "src/webparts/tasksAndReminders/loc/{locale}.js"
 ```
 
-This could be a result of incompatibility issues with the SPFx or Gulp versions. 
+This could be a result of incompatibility issues with the SPFx or Gulp versions.
 
 Build to confirm that there are no errors, by using the command
 
@@ -58,15 +58,15 @@ yo @microsoft/sharepoint
 
 ## How to Test
 
-To test without deploying the Web Part create a Custom SharePoint list, within a site, with the structure found below. 
+To test without deploying the Web Part create a Custom SharePoint list, within a site, with the structure found below.
 
-| Column      | Type                      | Required    |
-| ----------- | ------------------------- | ----------- |
-| Title       | Single line of text       | Yes         |
-| Date        | Date and Time (Date Only) | Yes         |
-| Reminder    | Yes / No                  |             |
+| Column   | Type                      | Required |
+| -------- | ------------------------- | -------- |
+| Title    | Single line of text       | Yes      |
+| Date     | Date and Time (Date Only) | Yes      |
+| Reminder | Yes / No                  |          |
 
-Edit the *listName* variable in the **\src\webparts\tasksAndReminders\services\TaskReminderService.ts** file to match the name of your custom list. By default the Web Part expects a list called *Tasks and Reminders* but this can be overridden during deployment by editing the *ListInstance* settings in the **\sharepoint\assets\elements.xml** file.
+Edit the _listName_ variable in the **\src\webparts\tasksAndReminders\services\TaskReminderService.ts** file to match the name of your custom list. By default the Web Part expects a list called _Tasks and Reminders_ but this can be overridden during deployment by editing the _ListInstance_ settings in the **\sharepoint\assets\elements.xml** file.
 
 After running the following command
 
@@ -87,17 +87,18 @@ Then add the Web Part to the Workbench section for testing.
 Before deploying to SharePoint, issue the two Gulp commands which will create an installable package
 
 ```
-gulp build
+gulp build --ship
 ```
 
 Then deploy the build folder after running the following command
+
 ```
-gulp package-solution
+gulp package-solution --ship
 ```
 
-From within your SharePoint tenant's AppCatalog site, upload or drag the **\sharepoint\solution\tasks-and-reminders.sppkg** package as a new application within the **Apps for SharePoint** section. 
+From within your SharePoint tenant's AppCatalog site, upload or drag the **\sharepoint\solution\tasks-and-reminders.sppkg** package as a new application within the **Apps for SharePoint** section.
 
-Then add the app within any other SharePoint site. The deployment process will automatically create the custom list. Then the Web Part, *Tasks and Reminders* can be added to any section.
+Then add the app within any other SharePoint site. The deployment process will automatically create the custom list. Then the Web Part, _Tasks and Reminders_ can be added to any section.
 
 ## Environment
 
@@ -105,25 +106,25 @@ The following sections outline the packages used for this demonstration.
 
 ### Relevant Global Packages
 
-| Package     | Version                     | Description                 |
-| ----------- | --------------------------- | --------------------------- |
-| Node.js     | v14.18.3                    | Node.js                     |
-| npm         | 6.14.15                     | Node Package Manager        |
-| @microsoft/generator-sharepoint  | 1.13.1 | SharePoint Framework (SPFx) |
-| gulp-cli                         | 2.3.0  | Gulp CLI                    |
-| typescript                       | 4.4.3  | TypeScript                  |
-| yo                               | 4.3.0  | Yeoman                      |
+| Package                         | Version  | Description                 |
+| ------------------------------- | -------- | --------------------------- |
+| Node.js                         | v14.18.3 | Node.js                     |
+| npm                             | 6.14.15  | Node Package Manager        |
+| @microsoft/generator-sharepoint | 1.13.1   | SharePoint Framework (SPFx) |
+| gulp-cli                        | 2.3.0    | Gulp CLI                    |
+| typescript                      | 4.4.3    | TypeScript                  |
+| yo                              | 4.3.0    | Yeoman                      |
 
 ### Relevant npm Packages (package.json)
 
-| Package     | Version             | Description |
-| ----------- | ------------------- | ----------- |
-| @pnp/sp     | ^2.11.0             | Api         |
-| office-ui-fabric-react | 7.174.1  | Fluent UI   |
-| react                  | 16.13.1  | React       |
-| react-dom              | 16.13.1  | React DOM   |
+| Package                | Version | Description |
+| ---------------------- | ------- | ----------- |
+| @pnp/sp                | ^2.11.0 | Api         |
+| office-ui-fabric-react | 7.174.1 | Fluent UI   |
+| react                  | 16.13.1 | React       |
+| react-dom              | 16.13.1 | React DOM   |
 
-### Useful Commands 
+### Useful Commands
 
 ```
 node --version && npm --version
