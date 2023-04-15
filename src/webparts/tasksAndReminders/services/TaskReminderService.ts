@@ -17,8 +17,8 @@ export default class TasksService {
         return await sp.web.lists.getByTitle(this.listName).items.add(
             {
                 Title: task.title,
-                Date: task.date,
-                Reminder: task.reminder
+                TasksAndReminderDate: task.date,
+                TasksAndReminderReminder: task.reminder
             }).then((response: IItemAddResult) => {
                 return response.data;
             }).then((data: any) => {
@@ -53,8 +53,8 @@ export default class TasksService {
                 return {
                     id: data.Id,
                     title: data.Title,
-                    date: data.Date,
-                    reminder: data.Reminder,
+                    date: data.TasksAndReminderDate,
+                    reminder: data.TasksAndReminderReminder,
                     person: person
                 } as ITaskReminder;
             }).catch((error: any) => {
@@ -77,9 +77,9 @@ export default class TasksService {
                     list.push({
                         id: item.Id,
                         title: item.Title,
-                        date: new Date(item.Date.toString()),
-                        reminder: item.Reminder,  
-                        person: person                      
+                        date: new Date(item.TasksAndReminderDate.toString()),
+                        reminder: item.TasksAndReminderReminder,
+                        person: person
                     } as ITaskReminder);
                 }
 
@@ -95,8 +95,8 @@ export default class TasksService {
         await sp.web.lists.getByTitle(this.listName).items.getById(id).update(
             {
                 Title: task.title,
-                Date: task.date,
-                Reminder: task.reminder
+                TasksAndReminderDate: task.date,
+                TasksAndReminderReminder: task.reminder
             }).then((response: IItemAddResult) => {
 
             }).then((data: any) => {
